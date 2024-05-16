@@ -68,6 +68,44 @@ API Route Descriptions:
             Input: JSON object with senderId, receiverId, and message.
             Output: JSON object representing the sent message or an automated response from LLM API.
 
+This project is a comprehensive backend for a real-time chat application built using the MERN stack, focusing on Node.js and MongoDB for server-side logic and database management. It features user authentication, real-time messaging, user online status management, and integration with language model APIs for generating automated responses.
+Features
+
+    User Authentication:
+        User registration and login with email and password.
+        JWT (JSON Web Tokens) for managing authentication.
+
+    Chat Functionality:
+        Real-time messaging using Socket.io.
+        Storage of all messages in MongoDB.
+        Retrieval of message history for conversations between users.
+
+    User Online Status and LLM Integration:
+        Users can set their status to 'AVAILABLE' or 'BUSY'.
+        Automatic generation of responses using a language model API when the recipient is 'BUSY'.
+        Timely response management with a fallback message if the LLM API does not respond within 10 seconds.
+
+    Basic Frontend (Optional):
+        A simple frontend to demonstrate the backend functionalities.
+
+Setup and Run Instructions
+Prerequisites
+
+    Node.js (v14.x or higher)
+    MongoDB
+    Git
+
+Automatic Response from LLM:
+        When a user with status 'BUSY' receives a message, an automatic response is generated using the LLM API.
+        If the LLM API does not respond within 10 seconds, a standard message is sent indicating the user is unavailable.
+
+Postman Collection
+
+    Import the provided Postman collection hq_collection.json into Postman to test the API endpoints.
+
+Necessary Environment Configurations
+
+    Ensure the .env file contains valid configurations for MONGO_URI, JWT_SECRET, LLM_API_URL, and LLM_API_KEY
 Environment Configurations:
 
       PORT: Port number for the server
